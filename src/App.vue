@@ -1,11 +1,41 @@
 <template>
-  <h1 class="bg-red-200">hello there</h1>
-  <p class="border-b-2 border-fuchsia-600 hello">can you see me?</p>
+  <h1 class="bg-red-200">Welcome to Rick and Morty Character Gallery!</h1>
+  <character-gallery :characters="characters"></character-gallery>
 </template>
 
 <script>
+import CharacterGallery from "./components/CharacterGallery.vue";
+import { ref, onMounted } from "vue";
+
 export default {
   name: "App",
-  components: {},
+  components: { CharacterGallery },
+  setup() {
+    const characters = ref([]);
+
+    // Function to fetch data from the server
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://rickandmortyapi.com/api/character?/page=3"
+        );
+        const result = await response.json();
+        console.log("result", result);
+
+        characters.value = result.results;
+        console.log("characters.value", result.results);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    onMounted(() => {
+      fetchData();
+    });
+
+    return {
+      characters,
+    };
+  },
 };
 </script>
