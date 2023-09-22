@@ -1,5 +1,4 @@
 <template>
-  <h1 class="bg-red-200">Welcome to Rick and Morty Character Gallery!</h1>
   <character-gallery :characters="characters"></character-gallery>
 </template>
 
@@ -17,7 +16,7 @@ export default {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://rickandmortyapi.com/api/character?/page=3"
+          "https://rickandmortyapi.com/api/character"
         );
         const result = await response.json();
         console.log("result", result);
