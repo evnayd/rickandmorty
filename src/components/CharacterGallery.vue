@@ -10,14 +10,42 @@
         :key="character.id"
       >
         <img class="" v-if="character.image" :src="character.image" />
-        <div class="pt-4">
-          <h2 class="uppercase font-bold">{{ character.name }}</h2>
-          <p class="">{{ character.gender }}</p>
-          <p class="">{{ character.status }}</p>
-          <p class="">
-            {{ formatDate(character.created, "DD, MMMM, YYYY") }}
-          </p>
-          <p class="">{{ character.location.name }}</p>
+        <div class="">
+          <h2 class="uppercase font-bold py-4">{{ character.name }}</h2>
+          <div class="flex items-baseline">
+            <font-awesome-icon
+              :icon="['fas', 'user']"
+              class="mr-4"
+              style="color: #e0e0e1"
+            />
+            <p class="">{{ character.gender }}</p>
+          </div>
+          <div class="flex items-baseline">
+            <font-awesome-icon
+              :icon="['fas', 'check']"
+              class="mr-4"
+              style="color: #e0e0e1"
+            />
+            <p class="">{{ character.status }}</p>
+          </div>
+          <div class="flex items-baseline">
+            <font-awesome-icon
+              :icon="['fas', 'calendar-check']"
+              class="mr-4"
+              style="color: #e0e0e1"
+            />
+            <p class="">
+              {{ formatDate(character.created, "DD, MMMM, YYYY") }}
+            </p>
+          </div>
+          <div class="flex items-baseline">
+            <font-awesome-icon
+              :icon="['fas', 'location-dot']"
+              class="mr-4"
+              style="color: #e0e0e1"
+            />
+            <p class="">{{ character.location.name }}</p>
+          </div>
         </div>
       </li>
     </ul>
