@@ -1,17 +1,23 @@
 <template>
   <div class="container mx-auto py-20">
     <h1 class="text-center mb-20 font-medium text-4xl">
-      Welcome to Rick and Morty character gallery!
+      Welcome to the Rick and Morty character gallery!
     </h1>
     <ul class="flex flex-wrap sm:justify-between justify-center">
       <li
-        class="mb-12 mx-1 bg-white rounded-lg shadow-md p-8"
+        class="mb-12 mx-1 bg-white rounded-lg shadow-md p-8 w-full md:w-80"
         v-for="character in characters"
         :key="character.id"
       >
-        <img class="" v-if="character.image" :src="character.image" />
+        <img
+          class="w-full object-cover"
+          v-if="character.image"
+          :src="character.image"
+        />
         <div class="">
-          <h2 class="uppercase font-bold py-4">{{ character.name }}</h2>
+          <h2 class="uppercase font-bold py-4 w-full">
+            {{ character.name }}
+          </h2>
           <div class="flex items-baseline">
             <font-awesome-icon
               :icon="['fas', 'user']"
