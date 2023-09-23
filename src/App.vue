@@ -17,7 +17,7 @@ export default {
     const isLoading = ref(false);
     const bottom = ref(false);
 
-    // Function to fetch data from the server
+    // Fetching data from the server
     const fetchData = async () => {
       try {
         const response = await fetch(
@@ -43,7 +43,6 @@ export default {
       const clientHeight = event.target.clientHeight;
 
       if (scrollTop + clientHeight >= scrollHeight) {
-        console.log("Yay!");
         bottom.value = true;
         fetchData();
       } else {
@@ -64,7 +63,6 @@ export default {
     });
 
     const computedCharacters = computed(() => characters.value);
-    console.log(" computedCharacters", computedCharacters);
 
     return {
       computedCharacters,
