@@ -1,6 +1,10 @@
 <template>
   <div ref="scrollContainer" class="infinite-scroll-container">
     <character-gallery :characters="computedCharacters"></character-gallery>
+    <p v-if="isFinished" class="text-center mb-20 font-medium text-xl">
+      Congratulations! You've scrolled to the end. There are no more characters
+      in the Rick and Morty series.
+    </p>
   </div>
 </template>
 
@@ -14,12 +18,22 @@ export default {
   setup() {
     const characters = ref([]);
     const pageNumber = ref(1);
-    const isLoading = ref(false);
+    const isFinished = ref(false);
     const bottom = ref(false);
+    const maxCharacters = ref(0);
 
     // Fetching data from the server
     const fetchData = async () => {
       try {
+        if (
+          maxCharacters.value > 0 &&
+          characters.value.length >= maxCharacters.value
+        ) {
+          console.log("The end. All characters are fetched.");
+          isFinished.value = true;
+          return;
+        }
+
         const response = await fetch(
           `https://rickandmortyapi.com/api/character/?page=${pageNumber.value}`
         );
@@ -29,11 +43,16 @@ export default {
           characters.value = characters.value.concat(result.results);
 
           pageNumber.value++;
+
+          // Update the maximum characters count
+          maxCharacters.value = result.info.count;
+        } else {
+          console.log("No more characters available.");
         }
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
-        isLoading.value = false;
+        //isLoading.value = false;
       }
     };
 
@@ -59,13 +78,14 @@ export default {
     // Removing the scroll event listener when the component is unmounted
     onUnmounted(() => {
       const container = document.querySelector(".infinite-scroll-container");
-      container.addEventListener("scroll", doScroll);
+      container.removeEventListener("scroll", doScroll);
     });
 
     const computedCharacters = computed(() => characters.value);
 
     return {
       computedCharacters,
+      isFinished,
     };
   },
 };
