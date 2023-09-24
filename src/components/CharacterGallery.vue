@@ -5,7 +5,7 @@
     </h1>
     <ul class="flex flex-wrap sm:justify-between justify-center">
       <li
-        class="mb-12 mx-1 bg-white rounded-lg shadow-md p-8 w-full md:w-80"
+        class="mb-12 mx-1 bg-white rounded-lg shadow-md p-4 md:p-8 w-full md:w-80"
         v-for="character in characters"
         :key="character.id"
       >
