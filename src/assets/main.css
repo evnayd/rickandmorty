@@ -13,8 +13,16 @@ body {
   padding: 0;
   color: #4e4f55;
   font-family: "Fira Sans", Helvetica, sans-serif;
-  /*font-family: "Nunito Sans", Helvetica, sans-serif;
-    animation: smoothLoad;
-    animation-duration: 2s;*/
+  animation: smoothLoad;
+  animation-duration: 1.5s;
   background-color: #fafafa;
+}
+
+@keyframes smoothLoad {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -10,7 +10,8 @@
         :key="character.id"
       >
         <img
-          class="w-full object-cover"
+          class="w-full object-cover bg-red-200 h-64 bg-slate-50"
+          alt="character image"
           v-if="character.image"
           :src="character.image"
         />
