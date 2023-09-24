@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto py-20">
-    <h1 class="text-center mb-20 font-medium text-4xl">
+    <h1 class="text-center mb-20 font-medium text-2xl md:text-4xl w-full">
       Welcome to the Rick and Morty character gallery!
     </h1>
     <ul class="flex flex-wrap sm:justify-between justify-center">
