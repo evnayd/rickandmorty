@@ -47,7 +47,7 @@ export default {
 
           pageNumber.value++;
 
-          // Update the maximum characters count
+          // Updating the maximum characters count
           maxCharacters.value = result.info.count;
         } else {
           console.log("No more characters available.");
@@ -79,6 +79,11 @@ export default {
 
     const handleGoTop = () => {
       console.log("hi im here in the vue comp");
+      const container = document.querySelector(".infinite-scroll-container");
+      container.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     };
 
     onMounted(() => {
