@@ -13,8 +13,9 @@ body {
   padding: 0;
   color: #4e4f55;
   font-family: "Fira Sans", Helvetica, sans-serif;
-  /*animation: smoothLoad;*/
+  animation: smoothLoad;
   animation-duration: 1.5s;
+  transition-timing-function: ease-out;
   background-color: #fafafa;
 }
 

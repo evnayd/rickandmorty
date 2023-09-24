@@ -8,8 +8,9 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faUser, faCheck, faLocationDot, faCalendarCheck);
+library.add(faUser, faCheck, faLocationDot, faCalendarCheck, faAngleUp);
 
 const app = createApp(App);
 
