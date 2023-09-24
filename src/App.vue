@@ -22,7 +22,6 @@ export default {
     const pageNumber = ref(1);
     const isFinished = ref(false);
     const isButtonVisible = ref(false);
-    const bottom = ref(false);
     const maxCharacters = ref(0);
 
     // Fetching data from the server
@@ -70,10 +69,9 @@ export default {
       }
 
       if (scrollTop + clientHeight >= scrollHeight) {
-        bottom.value = true;
         fetchData();
       } else {
-        bottom.value = false;
+        return;
       }
     };
 
