@@ -78,7 +78,6 @@ export default {
     };
 
     const handleGoTop = () => {
-      console.log("hi im here in the vue comp");
       const container = document.querySelector(".infinite-scroll-container");
       container.scrollTo({
         top: 0,
