@@ -27,7 +27,7 @@ export default defineComponent({
 <style scoped>
 button {
   position: fixed;
-  bottom: 5px;
+  bottom: 10px;
   right: 5px;
   border: none;
   outline: none;
@@ -47,7 +47,7 @@ button:hover {
 
 @media (min-width: 1024px) {
   button {
-    bottom: 15px;
+    bottom: 70px;
     right: 15px;
   }
 }

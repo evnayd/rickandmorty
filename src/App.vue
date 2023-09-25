@@ -77,10 +77,7 @@ export default {
 
     const handleGoTop = () => {
       const container = document.querySelector(".infinite-scroll-container");
-      container.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      container.scrollTop = 0;
     };
 
     onMounted(() => {
